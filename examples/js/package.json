@@ -1,0 +1,49 @@
+{
+  "name": "example",
+  "description": "Examples of @deliberative/utils.",
+  "version": "0.3.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deliberative/utils.git"
+  },
+  "author": {
+    "name": "Deliberative Technologies P.C.",
+    "email": "security@deliberative.io",
+    "url": "https://github.com/deliberative"
+  },
+  "contributors": [
+    {
+      "name": "Dimitris Karoukis",
+      "email": "dim@deliberative.io",
+      "url": "https://www.dkaroukis.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/deliberative/utils/issues"
+  },
+  "keywords": [
+    "deliberative",
+    "ledger",
+    "deliberative ledger",
+    "libsodium",
+    "curve25519",
+    "public key cryptography",
+    "shamir secret sharing",
+    "bip39",
+    "cryptography",
+    "emscripten",
+    "typescript"
+  ],
+  "homepage": "https://github.com/deliberative/utils#readme",
+  "scripts": {
+    "test": "node test.mjs && node test.cjs"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
+  },
+  "dependencies": {
+    "@deliberative/utils": "file:deliberative-utils-0.1.1.tgz"
+  }
+}
