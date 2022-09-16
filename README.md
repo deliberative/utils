@@ -54,7 +54,7 @@ const dutils = require("@deliberative/utils");
 or as UMD in the browser with
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@deliberative/utils@0.1.1/lib/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@deliberative/utils@0.1.3/lib/index.min.js"></script>
 ```
 
 ## Examples
