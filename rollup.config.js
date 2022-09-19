@@ -1,4 +1,3 @@
-import { getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
@@ -21,13 +20,16 @@ const plugins = [
     "process.env.NODE_ENV": JSON.stringify(production),
   }),
 
-  commonjs(),
+  commonjs({
+    transformMixedEsModules: true,
+  }),
 
   resolve({
     jsnext: true,
     main: true,
+    module: true,
     browser: true,
-    preferBuiltins: false,
+    preferBuiltins: true,
   }),
 
   url(),
@@ -83,25 +85,18 @@ export default [
   // ESM and CJS
   {
     input,
-    plugins: [
-      ...plugins,
-      getBabelOutputPlugin({
-        // plugins: [["@babel/plugin-transform-runtime", { useESModules: true }]],
-        presets: [
-          [
-            "@babel/preset-env",
-            {
-              targets: {
-                esmodules: true,
-              },
-            },
-          ],
-        ],
-      }),
-    ],
+    plugins,
     output: [
       {
         file: pkg.module,
+        format: "esm",
+        esModule: true,
+        interop: "esModule",
+        exports: "named",
+        sourcemap: true,
+      },
+      {
+        file: pkg.module.replace(".mjs", ".node.mjs"),
         format: "esm",
         esModule: true,
         interop: "esModule",

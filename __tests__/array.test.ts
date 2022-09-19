@@ -5,9 +5,6 @@ describe("Starting the array test suite.", () => {
     const arr1 = await dutils.randomBytes(75);
     const arr2 = await dutils.randomBytes(75);
 
-    console.log(arr1);
-    console.log(arr2);
-
     const areEqual1 = await dutils.arraysAreEqual(arr1, arr1);
     const areEqual2 = await dutils.arraysAreEqual(arr1, arr2);
 
