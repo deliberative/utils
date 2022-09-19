@@ -44,6 +44,6 @@
     "npm": ">=8"
   },
   "dependencies": {
-    "@deliberative/utils": "file:deliberative-utils-0.1.1.tgz"
+    "@deliberative/utils": "file:deliberative-utils-0.1.4.tgz"
   }
 }

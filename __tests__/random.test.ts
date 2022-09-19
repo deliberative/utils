@@ -4,6 +4,7 @@ describe("Starting the cryptographic random utils test suite.", () => {
   test("Generation without module works.", async () => {
     const len = 34 * 1024;
     const message = await dutils.randomBytes(len);
+
     expect(message.length).toBe(len);
     expect(message[0] === message[Math.ceil((2 * len) / 3)]).toBe(false);
   });

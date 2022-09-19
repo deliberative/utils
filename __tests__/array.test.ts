@@ -4,11 +4,15 @@ describe("Starting the array test suite.", () => {
   test("Array equality for different arrays works.", async () => {
     const arr1 = await dutils.randomBytes(75);
     const arr2 = await dutils.randomBytes(75);
-    const areEqual = await dutils.arraysAreEqual(arr1, arr1);
-    const areNotEqual = await dutils.arraysAreEqual(arr1, arr2);
 
-    expect(areEqual).toBe(true);
-    expect(areNotEqual).toBe(false);
+    console.log(arr1);
+    console.log(arr2);
+
+    const areEqual1 = await dutils.arraysAreEqual(arr1, arr1);
+    const areEqual2 = await dutils.arraysAreEqual(arr1, arr2);
+
+    expect(areEqual1).toBe(true);
+    expect(areEqual2).toBe(false);
   });
 
   test("Array is number works.", async () => {

@@ -30,7 +30,7 @@ import uint8ArrayToNumber from "./uint8ArrayToNumber";
 import uint8ArrayToBigInt from "./uint8ArrayToBigInt";
 import memory from "./memory";
 
-export default {
+const dutils = {
   itemIsInArray,
   itemsInArray,
   arraysAreEqual,
@@ -47,3 +47,5 @@ export default {
   memory,
   loadModule: dutilsMethodsModule,
 };
+
+export default dutils;

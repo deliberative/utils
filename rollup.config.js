@@ -1,3 +1,4 @@
+import { getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
@@ -82,11 +83,26 @@ export default [
   // ESM and CJS
   {
     input,
-    plugins,
+    plugins: [
+      ...plugins,
+      getBabelOutputPlugin({
+        // plugins: [["@babel/plugin-transform-runtime", { useESModules: true }]],
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              targets: {
+                esmodules: true,
+              },
+            },
+          ],
+        ],
+      }),
+    ],
     output: [
       {
         file: pkg.module,
-        format: "es",
+        format: "esm",
         esModule: true,
         interop: "esModule",
         exports: "named",
