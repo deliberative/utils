@@ -1,7 +1,7 @@
 {
   "name": "@deliberative/utils",
   "description": "Utility functions for the deliberative ledger protocol for nodejs and the browser.",
-  "version": "0.1.5",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/deliberative/utils.git"
@@ -71,7 +71,7 @@
     "jest": "jest --config jest.config.json",
     "test": "npm-run-all -s wasm jest",
     "preformat": "clang-format-all src/",
-    "format": "prettier --write src __tests__",
+    "format": "prettier --write src __tests__ examples/js",
     "lint": "eslint --ext .js,.ts src __tests__",
     "prepublishOnly": "npm-run-all -s lint test build",
     "preversion": "npm-run-all -s lint format",

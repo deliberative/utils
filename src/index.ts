@@ -15,15 +15,8 @@
 
 import dutilsMethodsModule from "./c/build/dutilsMethodsModule";
 
-import itemIsInArray from "./itemIsInArray";
-import itemsInArray from "./itemsInArray";
 import arraysAreEqual from "./arraysAreEqual";
 import arrayIsNumber from "./arrayIsNumber";
-import arrayRandomShuffle from "./arrayRandomShuffle";
-import arrayRandomSubset from "./arrayRandomSubset";
-import countOccurrencesInArray from "./countOccurrencesInArray";
-import randomBytes from "./randomBytes";
-import randomNumberInRange from "./randomNumberInRange";
 import bigIntToUint8Array from "./bigIntToUint8Array";
 import numberToUint8Array from "./numberToUint8Array";
 import uint8ArrayToNumber from "./uint8ArrayToNumber";
@@ -31,15 +24,8 @@ import uint8ArrayToBigInt from "./uint8ArrayToBigInt";
 import memory from "./memory";
 
 const dutils = {
-  itemIsInArray,
-  itemsInArray,
   arraysAreEqual,
   arrayIsNumber,
-  arrayRandomShuffle,
-  arrayRandomSubset,
-  countOccurrencesInArray,
-  randomBytes,
-  randomNumberInRange,
   bigIntToUint8Array,
   numberToUint8Array,
   uint8ArrayToNumber,

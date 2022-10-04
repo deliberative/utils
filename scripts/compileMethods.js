@@ -17,12 +17,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 
-const {
-  srcPath,
-  libsodiumIncludePath,
-  libsodiumIncludePrivatePath,
-  emcc,
-} = require("./utils.js");
+const { srcPath, emcc } = require("./utils.js");
 
 const basePath = path.join(srcPath, "c");
 const buildPath = path.join(basePath, "build");
@@ -69,16 +64,11 @@ ${testing} \
 -s EXPORTED_FUNCTIONS=\
 _malloc,\
 _free,\
+_int_to_uint8,\
+_uint8_to_int,\
 _arrays_are_equal,\
-_item_in_array,\
-_items_in_array,\
-_occurrences_in_array,\
-_array_is_number,\
-_random_bytes,\
-_random_number_in_range \
+_array_is_number \
 -s EXPORT_NAME=dutilsMethodsModule \
--I${libsodiumIncludePath} \
--I${libsodiumIncludePrivatePath} \
 -o ${wasmPath} \
 ${methodsPath}`,
   { stdio: "inherit" },

@@ -15,33 +15,24 @@
 
 import memoryLenToPages from "./memoryLenToPages";
 
+const intToUint8 = (): WebAssembly.Memory => {
+  const memoryLen = 4 * Uint8Array.BYTES_PER_ELEMENT;
+
+  const pages = memoryLenToPages(memoryLen);
+
+  return new WebAssembly.Memory({ initial: pages, maximum: pages });
+};
+
+const uint8ToInt = (): WebAssembly.Memory => {
+  const memoryLen = 4 * Uint8Array.BYTES_PER_ELEMENT;
+
+  const pages = memoryLenToPages(memoryLen);
+
+  return new WebAssembly.Memory({ initial: pages, maximum: pages });
+};
+
 const arraysAreEqual = (arrayLen: number): WebAssembly.Memory => {
   const memoryLen = 2 * arrayLen * Uint8Array.BYTES_PER_ELEMENT;
-
-  const pages = memoryLenToPages(memoryLen);
-
-  return new WebAssembly.Memory({ initial: pages, maximum: pages });
-};
-
-const itemIsInArray = (
-  arrayLen: number,
-  itemLen: number,
-): WebAssembly.Memory => {
-  const memoryLen = (arrayLen + 1) * itemLen * Uint8Array.BYTES_PER_ELEMENT;
-
-  const pages = memoryLenToPages(memoryLen);
-
-  return new WebAssembly.Memory({ initial: pages, maximum: pages });
-};
-
-const itemsInArray = (
-  arrayLen: number,
-  itemsArrayLen: number,
-  itemLen: number,
-): WebAssembly.Memory => {
-  const memoryLen =
-    (arrayLen * itemLen + itemsArrayLen * (itemLen + 1)) *
-    Uint8Array.BYTES_PER_ELEMENT;
 
   const pages = memoryLenToPages(memoryLen);
 
@@ -56,39 +47,9 @@ const arrayIsNumber = (arrayLen: number): WebAssembly.Memory => {
   return new WebAssembly.Memory({ initial: pages, maximum: pages });
 };
 
-const countOccurencesInArray = (
-  arrayLen: number,
-  itemLen: number,
-): WebAssembly.Memory => {
-  const memoryLen = (arrayLen + 1) * itemLen * Uint8Array.BYTES_PER_ELEMENT;
-
-  const pages = memoryLenToPages(memoryLen);
-
-  return new WebAssembly.Memory({ initial: pages, maximum: pages });
-};
-
-const randomBytes = (bytes: number): WebAssembly.Memory => {
-  const memoryLen = bytes * Uint8Array.BYTES_PER_ELEMENT;
-
-  const pages = memoryLenToPages(memoryLen);
-
-  return new WebAssembly.Memory({ initial: pages, maximum: pages });
-};
-
-const randomNumberInRange = (min: number, max: number): WebAssembly.Memory => {
-  const bytesNeeded = Math.ceil(Math.log2(max - min) / 8);
-  const memoryLen = bytesNeeded * Uint8Array.BYTES_PER_ELEMENT;
-  const pages = memoryLenToPages(memoryLen);
-
-  return new WebAssembly.Memory({ initial: pages, maximum: pages });
-};
-
 export default {
+  intToUint8,
+  uint8ToInt,
   arraysAreEqual,
-  itemIsInArray,
-  itemsInArray,
   arrayIsNumber,
-  countOccurencesInArray,
-  randomBytes,
-  randomNumberInRange,
 };

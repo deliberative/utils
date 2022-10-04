@@ -12,7 +12,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
 
 const big0 = BigInt(0);
 const big1 = BigInt(1);
@@ -47,23 +46,8 @@ const bigIntToUint8Array = (n: bigint): Uint8Array => {
     i += 1;
     j += 2;
   }
+
   return u8;
-  // const start = 0;
-  // let len = start + 2; // start, length, and 1 byte min
-  //
-  // const bs = new Uint8Array(len);
-  //
-  // for (let i = 0x100n; i < n; i <<= 8n, len++);
-  //
-  // let r = BigInt(n);
-  // for (let pos = start + 1; pos < len; pos++) {
-  //   bs[pos] = Number(r & 0xffn);
-  //   r >>= 8n;
-  // }
-  //
-  // bs[start] = len - start - 1; // write byte-count to start byte
-  //
-  // return bs;
 };
 
 export default bigIntToUint8Array;
